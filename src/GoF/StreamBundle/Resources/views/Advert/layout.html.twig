@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+    	<meta charset="UTF-8">
+    	<title>GoF</title>
+
+    	{# Chargement des CSS #}
+		{% stylesheets '@GoFStreamBundle/Resources/public/css/*' %}
+    		<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+
+		{% stylesheets '@GoFStreamBundle/Resources/public/css/fonts/Timeline.ttf' %}
+		{% endstylesheets %}
+
+    </head>
+
+	<body>
+    	<header>
+			<div class="entete row">
+				<div class="offset-s2 col s8"></div>
+			</div>
+
+			<nav>
+				<div id="main_menu" class="row">
+					<a href="#principal/slide_live" class="col s3 active" id="menu_live">Theatre</a>
+					<a href="#principal/slide_video" class="col s3" id="menu_video">Video</a>
+					<a href="#principal/slide_mythologie" class="col s3" id="menu_mythologie">Mythologie</a>
+					<a href="#principal/slide_compte" class="col s3" id="menu_compte">Mon Compte</a>
+				</div>
+			</nav>
+    	</header>
+
+		<main class="col m10">
+			<div id="fullpage">
+				<div class="section" anchor="principal">
+					<div class="slide active row" data-anchor="slide_live">
+						<div class="col s8 frame-twitch">
+							<iframe src="https://player.twitch.tv/?channel=theakarian" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/theakarian?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:400px; font-weight:normal; font-size:10px; text-decoration:underline;"></a>
+						</div>
+						
+						<div class="col s3">
+						</div>
+					</div>
+					
+					<div class="slide row" data-anchor="slide_video">Video
+					</div>
+
+					<div class="slide row" data-anchor="slide_mythologie">Contact
+					</div>
+
+					<div class="slide row" data-anchor="slide_compte">Contact
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="row">
+			<div class="reseau offset-s10 col s2">
+				<img src="" height="18px">
+			</div>
+		</footer>
+    	
+    	{# Script JS #}
+    	{% javascripts '@GoFStreamBundle/Resources/public/js/*' %}
+    		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+
+
+    	<script type="text/javascript">
+  			$(document).ready(function(){
+				$('#fullpage').fullpage({
+					anchors:['principal'],
+					scrollingSpeed:90,
+
+					afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex){
+						var loadedSlide = $(this);
+
+						//first slide of the second section
+						if(anchorLink == 'principal' && slideIndex == 0){
+							$('#menu_video').removeClass('active');
+							$('#menu_mythologie').removeClass('active');
+							$('#menu_compte').removeClass('active');
+							$('#menu_live').addClass('active');
+						}
+
+						if(anchorLink == 'principal' && slideIndex == 1){
+							$('#menu_live').removeClass('active');
+							$('#menu_mythologie').removeClass('active');
+							$('#menu_compte').removeClass('active');
+							$('#menu_video').addClass('active');
+						}
+
+						if(anchorLink == 'principal' && slideIndex == 2){
+							$('#menu_live').removeClass('active');
+							$('#menu_video').removeClass('active');
+							$('#menu_compte').removeClass('active');
+							$('#menu_mythologie').addClass('active');
+						}
+
+						if(anchorLink == 'principal' && slideIndex == 3){
+							$('#menu_live').removeClass('active');
+							$('#menu_video').removeClass('active');
+							$('#menu_mythologie').removeClass('active');
+							$('#menu_compte').addClass('active');
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

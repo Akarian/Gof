@@ -1,0 +1,4 @@
+go_f_stream:
+    resource: "@GoFStreamBundle/Controller/"
+    type:     annotation
+    prefix:   /

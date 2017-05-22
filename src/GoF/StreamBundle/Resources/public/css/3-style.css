@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "timeline";
+    src: url(aace086_Timeline_1.css) format("opentype");
+    /* Avec un mot-clé */
+	text-rendering: auto;
+}
+
+body{
+  background-color: #222222;
+  font-family: "timeline", sans-serif;
+}
+
+/* Menu
+/* Je sélectionne les <li> du menu horizontal */
+div#main_menu a { 
+	display : inline-block;
+  	height: 100%;
+ 	vertical-align: middle;
+  	line-height: normal;
+  	padding-top: 5px;
+  	background-color: white;
+  	transition: all 0.5s ease;
+}
+
+div#main_menu a:hover, #main_menu > a.active{
+	background-color: #ef5350;
+	color: white;
+}
+
+div#main_menu {
+	list-style-type : none; /* Car sinon les puces se placent n'importe où */
+	background-color : #ffffff;
+	margin-bottom: 0;
+	height: 30px;
+	text-align: center;
+}
+
+#main_menu > .col {
+	margin-top: 0;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+/* Entete */
+.entete {
+	background-color : white;
+	height: 100px;
+	margin-bottom: 0;	
+	background: #222222;
+}
+
+/* footer */
+footer {
+	background-color: white;
+	height: 20px;
+	position: fixed;
+    bottom: -20px;
+    width: 100%;
+}
+
+/* Réseaux */
+
+
+/* Ecran twitch */
+.frame-twitch > .col{
+	margin: 50px 0 0 100px;
+}
+
+/* Rectification */
+.fp-tableCell {
+	display: block;
+}
